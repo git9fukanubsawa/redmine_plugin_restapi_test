@@ -1,0 +1,23 @@
+<h2>REST API TEST</h2>
+<div id="input-search">
+    <%= form_with(url: restapis_result_path) do |form| %>
+        <p>
+        <%= form.label 'URLを入力して下さい。' %><br/>
+        <%= form.text_field :url, :size => 100 %><br/></p>
+        <p>
+        <p>
+        <%= form.label 'BASIC認証ユーザー名' %><br/>
+        <%= form.text_field :user, :size => 50 %><br/></p>
+        <p>
+        <p>
+        <%= form.label 'BASIC認証パスワード' %><br/>
+        <%= form.text_field :password, :size => 50 %><br/></p>
+        <p>
+
+        <%= form.label 'POSTメソッドの場合には、外部変数としてデータを渡す。' %><br/>
+        <%= form.label '変数名:' %><%= form.text_field :data_name, :size => 20 %><%= form.label '値:' %><%= form.text_field :data_body, :size => 50 %><br/></p>
+        <p>
+        <%= form.select :http_method, ['get', 'post',], {include_blank: 'HTTPメソッドを選択してください。'} %></p>
+        <%= form.submit('REST API実行') %>
+    <% end %>
+</div>
